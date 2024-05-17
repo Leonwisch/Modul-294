@@ -24,6 +24,6 @@ function guessNumber() {
             alert("Wrong Number. Random number was higher");
             tries++
         }
-    } while (guessedNumber != randomNumber);
+    } while (guessedNumber !== randomNumber);
     alert("Guessed Correct you needed " +tries+ " tries!");
 }
