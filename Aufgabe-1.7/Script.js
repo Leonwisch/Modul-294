@@ -14,13 +14,16 @@ if (hour < 12) {
 function guessNumber() {
     let randomNumber = Math.floor(Math.random() * 100);
     let guessedNumber;
+    let tries = 0;
     do {
         guessedNumber = prompt("Guess a Number between 0 and 100: ");
         if (guessedNumber > randomNumber) {
             alert("Wrong Number. Random number was lower");
+            tries++
         } else if (guessedNumber < randomNumber) {
             alert("Wrong Number. Random number was higher");
+            tries++
         }
     } while (guessedNumber != randomNumber);
-    alert("Guessed Correct");
+    alert("Guessed Correct you needed " +tries+ " tries!");
 }
