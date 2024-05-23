@@ -13,3 +13,13 @@ ul{
     font-family: Arial;
     font-style: normal;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+}
+
+.grid-item {
+    text-align: center;
+}

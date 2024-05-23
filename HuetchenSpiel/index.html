@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Das Becherspiel</title>
+</head>
+<body>
+
+<h1>Das Becherspiel</h1>
+
+<div class="grid-container">
+    <button class="grid-item" id="cup1" onclick="checkCup(1)"><img src="./image/cup.png" class="cup"></button>
+    <button class="grid-item" id="cup2" onclick="checkCup(2)"><img src="./image/cup.png" class="cup"></button>
+    <button class="grid-item" id="cup3" onclick="checkCup(3)"><img src="./image/cup.png" class="cup"></button>
+</div>
+
+<button onclick="shuffleCups()">Shuffle</button>
+
+<p id="score">Trys: 0</p>
+<script defer src="./Script.js"></script>
+</body>
+</html>
