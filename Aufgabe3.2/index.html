@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe3.2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h1 id="first-h1">Hallo</h1>
+<h1 id="second-h1">Autohaus</h1>
+<input id="inputid" type="text">
+<ul id="car-list">
+    <li>Porsche</li>
+    <li>Ferarri</li>
+    <li>Mclaren</li>
+</ul>
+<button id="add-button" type="button">Hinzufügen</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const inputField = document.getElementById('inputid');
+        const firstHeading = document.getElementById('first-h1');
+        const secondHeading = document.getElementById('second-h1');
+        const carList = document.getElementById('car-list');
+        const addButton = document.getElementById('add-button');
+
+        // Aufgabe 1
+        inputField.addEventListener('input', () => {
+            firstHeading.innerText = inputField.value;
+        });
+
+        // Aufgabe 2
+        inputField.addEventListener('blur', () => {
+            secondHeading.innerText = inputField.value;
+        });
+
+        // Aufgabe 3
+        addButton.addEventListener('click', () => {
+                const newLi = document.createElement('li');
+                newLi.innerText = inputField.value;
+                carList.appendChild(newLi);
+                inputField.value = '';
+
+        });
+    });
+</script>
+</body>
+</html>
