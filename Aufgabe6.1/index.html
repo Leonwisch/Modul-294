@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Aufgabe 6.1</title>
+    <script defer src="./script.js"></script>
+</head>
+<body>
+<form name="SignUp">
+
+    <div>
+        <label for="firstname">Vorname</label>
+        <input type="text" id="firstname" name="firstname">
+    </div>
+
+    <div>
+        <label for="lastname">Nachname</label>
+        <input type="text" id="lastname" name="lastname">
+    </div>
+
+    <div>
+        <label for="street">Strasse</label>
+        <input type="text" id="street" name="street">
+    </div>
+
+    <div>
+        <label for="plz">PLZ</label>
+        <input type="number" id="plz" name="plz">
+    </div>
+
+    <div>
+        <label for="city">Ort</label>
+        <input type="text" id="city" name="city">
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+    </div>
+
+    <div>
+        <label for="du">Anrede Du</label>
+        <input type="checkbox" id="du" name="anrede" value="anrede">
+        <label for="du">Anrede Zie</label>
+        <input type="checkbox" id="zie" name="anrede" value="anrede">
+    </div>
+
+    <div>
+        <label for="privat">Kennen sie ihn Privat</label>
+        <input type="radio" id="privat" name="beziehung" value="privat"><br>
+        <label for="schule">Kennen sie ihn von der Schule</label>
+        <input type="radio" id="schule" name="beziehung" value="schule"><br>
+        <label for="geschäft">Kennen sie ihn von dem Geschäft</label>
+        <input type="radio" id="geschäft" name="beziehung" value="geschäft">
+    </div>
+
+    <button type="submit">Abschicken</button>
+
+    <div class="anzeige">
+
+    </div>
+
+</form>
+
+</body>
+</html>

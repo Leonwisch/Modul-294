@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form id="commentForm">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required>
+    <label for="comment">Comment:</label>
+    <input type="text" name="comment" id="comment" required>
+    <button type="submit" name="submit-button">Submit</button>
+</form>
+<script>
+    const HOST = "http://10.65.4.20";
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("commentForm");
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const challengeResponse = await fetch(`${HOST}/challenges/1`, { method: "POST" });
+            const token = challengeResponse.headers.get("Authorization");
+            await fetch(`${HOST}/comments`, {
+                method: "POST",
+                headers: { Authorization: token, "Content-Type": "application/json" },
+                body: JSON.stringify({ username: formData.get("username"), message: formData.get("comment") })
+            });
+        });
+    });
+</script>
+</body>
+</html>

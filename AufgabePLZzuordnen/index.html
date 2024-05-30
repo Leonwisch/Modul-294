@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PLZ zu Ort zuordnen</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<form name="SignUp">
+
+        <label for="firstname">Vorname</label><br>
+        <input type="text" id="firstname" name="firstname" required>
+    <br>
+
+
+        <label for="lastname">Nachname</label><br>
+        <input type="text" id="lastname" name="lastname" required>
+    <br>
+
+
+        <label for="street">Strasse</label><br>
+        <input type="text" id="street" name="street" required>
+    <br>
+
+
+        <label for="plz">PLZ</label><br>
+        <input type="text" id="plz" name="plz" required>
+    <br>
+
+        <label for="city">Ort</label><br>
+        <input type="text" id="city" name="city" readonly>
+
+    <button type="submit">Abschicken</button>
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let zipData = [];
+
+        fetch('./places.json')
+            .then((res) => res.json())
+            .then((data) => {
+                zipData = data;
+            });
+
+        document.getElementById('plz').addEventListener('change', function() {
+            const plz = this.value;
+            const matchingEntry = zipData.find(place => place.zipcode === plz);
+            if (matchingEntry) {
+                document.getElementById('city').value = matchingEntry.place;
+            } else {
+                document.getElementById('city').value = '';
+            }
+        });
+    });
+</script>
+</body>
+</html>

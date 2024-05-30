@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation</title>
+    <style>
+        body {
+            display: flex;
+
+
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 1.2em;
+            position: absolute;
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(calc(100vw - 100px), 0) rotate(180deg); }
+            50% { transform: translate(calc(50vw - 50px), calc(50vh - 50px)) rotate(0deg); }
+            75% { transform: translate(0, calc(50vh - 50px)) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .box.active {
+            background-color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">Transition!</div>
+
+<script>
+    document.getElementById('box').addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
+</script>
+</body>
+</html>
